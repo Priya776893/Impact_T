@@ -1,0 +1,1205 @@
+[DAY 07] MONADY
+
+Two arrays are said to be compatible if they are of the same size and if the ith element in the first array is greater than or equal to the ith element in the second array for all the values of i. Write a program to find whether 2 arrays are compatible or not.
+
+Input Format
+
+Input consists of 2n+2 integers. The first integer corresponds to ‘n1’, the size of the first array. The next ‘n1’ integers correspond to the elements in the first array. The next (n+1) integer corresponds to 'n2', the size of the second array. The last 'n2' integers correspond to the elements in the second array.
+
+Constraints
+
+NA
+
+Output Format
+
+The output is any one of the two strings "Compatible" or "Incompatible"
+
+Sample Input 0
+
+5
+2
+3
+6
+8
+1
+5
+1
+1
+1
+1
+1
+Sample Output 0
+
+Compatible
+Sample Input 1
+
+5
+2
+3
+6
+8
+1
+5
+1
+1
+1
+1
+2
+Sample Output 1
+
+Incompatible
+
+
+
+--iimport java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read size and elements of arr1
+        System.out.println("Enter arr1 size:");
+        int n = sc.nextInt();
+        int[] arr1 = new int[n];
+
+        System.out.println("Enter elements in arr1:");
+        for (int i = 0; i < n; i++) {
+            arr1[i] = sc.nextInt();
+        }
+
+        // Read size and elements of arr2
+        System.out.println("Enter arr2 size:");
+        int m = sc.nextInt();
+        int[] arr2 = new int[m];
+
+        System.out.println("Enter elements in arr2:");
+        for (int i = 0; i < m; i++) {
+            arr2[i] = sc.nextInt();
+        }
+
+        // Check for compatibility
+        if (n != m) {
+            System.out.println("Not compatible");
+        } else {
+            boolean compatible = true;
+            for (int i = 0; i < n; i++) {
+                if (arr1[i] < arr2[i]) {
+                    compatible = false;
+                    break;
+                }
+            }
+
+            if (compatible) {
+                System.out.println("Compatible");
+            } else {
+                System.out.println("Not compatible");
+            }
+        }
+
+        sc.close();
+    }
+}
+
+-----------------------
+Arjuna and Karna were playing cards. Arjuna has 5 cards. Karna wants to insert a new card in between Arjuna's cards. Karna wants to find the position to insert the card. So help him to find the position to insert a certain card. If Karna inserts a card in a position other than the position of 5 cards, the game will be over. So play carefully.
+
+For example, consider an array having three elements in it initially and a\[0] = 1, a\[1] = 2 and a\[2] = 3 and you want to insert a number 45 at location 1 i.e. a\[0] = 45, so we have to move elements one step below after insertion a\[1] = 1, and a\[2] = 2 and a\[3] = 3.
+
+Input Format
+
+The input consists of four integers. The first input corresponds to the size of an array. The second input corresponds to the array elements. The third input corresponds to the location where you wish to insert an element. The fourth input corresponds to the element to be inserted.
+
+Constraints
+
+NA
+
+Output Format
+
+The output consists of array elements in a format after insertion. If the position where the element has to be inserted is greater than size of the array, then print Invalid Input.
+
+Sample Input 0
+
+5
+1
+2
+3
+4
+5
+4
+10
+Sample Output 0
+
+Array after insertion is
+1
+2
+3
+10
+4
+5
+Sample Input 1
+
+4
+1
+2
+3
+4
+8
+Sample Output 1
+
+Invalid Input
+
+
+--import java.util.*;
+
+public class InsertCard {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+         int size = sc.nextInt();
+        int[] arr = new int[size + 1]; 
+       
+        for (int i = 0; i < size; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        
+        int pos = sc.nextInt();  
+        if (sc.hasNextInt()) {
+            int elem = sc.nextInt();
+
+
+            if (pos > size || pos < 0) {
+                System.out.println("Invalid Input");
+            } else 
+               {
+
+                    for (int i = size; i > pos; i--) {
+                    arr[i] = arr[i - 1];
+                }
+
+                // Insert the new element
+                arr[pos] = elem;
+
+                System.out.println("Array after insertion is");
+                for (int i = 0; i <= size; i++) {
+                    System.out.println(arr[i]);
+                }
+            }
+        } else {
+            // If only 3 values given (no element to insert)
+            System.out.println("Invalid Input");
+        }
+
+        sc.close();
+    }
+}
+
+___________________
+Jack and John were investigating a murder and the murderer was Ms.Isha Adler. She wanted Jack to find her by solving the puzzles. Jack was able to solve all but one. The last task was to write a program to remove duplicate elements from an array. Can you help Jack?
+
+Input Format
+
+Input consists of 1 integer and 1 array. The first integer corresponds to the size of the array. The next integers correspond to the elements in the array.
+
+Constraints
+
+NA
+
+Output Format
+
+The output consists of an array with no duplicate elements.
+
+Sample Input 0
+
+5
+1
+2
+2
+3
+4
+Sample Output 0
+
+1
+2
+3
+4
+Explanation 0
+
+Here, among the array elements, 1 is repeated twice, removing the duplicate ones we can print the remaining array elements. Hence the output is 1 5
+
+Sample Input 1
+
+4
+3
+2
+1
+2
+Sample Output 1
+
+3
+2
+1
+
+
+--import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        int arr[] = {1, 1, 3, 3, 5};
+
+        // Print the first element
+        System.out.println(arr[0]);
+
+        // Print only when current element != previous one
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[i - 1]) {
+                System.out.println(arr[i]);
+            }
+        }
+    }
+}
+
+
+
+Q.even and odd sum of an array
+
+--import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 4, 2, 1};
+        int even_sum = 0, odd_sum = 0;
+
+       
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                even_sum += arr[i];
+            } else {
+                odd_sum += arr[i];
+            }
+        }
+
+       
+        System.out.println("Sum of even numbers: " + even_sum);
+        System.out.println("Sum of odd numbers: " + odd_sum);
+    }
+}
+
+
+Q.min and max element of an arr[]
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 6, 5, 3, 8};
+        
+        int min = arr[0];
+        int max = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min)
+                min = arr[i];
+            if (arr[i] > max)
+                max = arr[i];
+        }
+
+        System.out.println("Minimum element: " + min);
+        System.out.println("Maximum element: " + max);
+    }
+}
+
+Q.
+cubic sm given a function int is cubic sumexist(long, longint A\[ ].int N);  function accept  array of size N  implement  func to return count of good integer in array a  integer z is said to be good integer if  there exist 2 integrs x cube + y cube = z  this question was asked in accenture 2011
+
+public class CubicSum{
+    public static void main(String[] args) {
+        int[] arr = {1458, 370, 28, 2, 8};
+        int count = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            int x = 1;
+            int y = (int) Math.cbrt(arr[i]);
+
+            while (x <= y) {
+                int z = (x * x * x) + (y * y * y);
+
+                if (z == arr[i]) {
+                    count++;
+                    System.out.println(arr[i] + " can be expressed as " + x + "^3 + " + y + "^3");
+                    break; 
+                } else if (z < arr[i]) {
+                    x++;
+                } else {
+                    y--;
+                }
+            }
+        }
+        System.out.println("Total count = " + count);
+    }
+}
+
+
+
+__________________
+
+[DAY 8 13 MAY]
+__________________
+
+A bus stop queue has 'n' groups of people. The i-th group from the beginning has 'ai' people. Every 30 minutes an empty bus arrives at the bus stop, it can carry atmost 'm' people. Naturally, the people from the first group enter the bus first. Then goes the people from the second group and so on. Note that the order of groups in the queue never changes. Moreover, if some group cannot fit all of its members into the current bus, it waits for the next bus and joins with the other groups standing after them in the queue. Your task is to determine the number of buses needed to transport all 'n' groups to the Jeju Island countryside.
+
+Input Format
+
+The first line contains two integers n and m (1 ≤ n, m ≤ 100). The next line contains n integers: a1, a2, ..., an (1 ≤ ai ≤ m).
+
+Constraints
+
+NA
+
+Output Format
+
+Print a single integer — the number of buses needed to transport all n groups to the Jeju Island countryside.
+
+Sample Input 0
+
+4 3
+2 3 2 1
+Sample Output 0
+
+3
+Sample Input 1
+
+4 4
+3 3 3 3
+Sample Output 1
+
+4
+
+**import java.util.Scanner;
+
+public class BusTransport {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read n and m
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[] groups = new int[n];
+        for (int i = 0; i < n; i++) {
+            groups[i] = sc.nextInt();
+        }
+
+        int buses = 1;
+        int currentCapacity = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (currentCapacity + groups[i] <= m) {
+                currentCapacity += groups[i];
+            } else {
+                buses++;
+                currentCapacity = groups[i];
+            }
+        }
+
+        System.out.println(buses);
+        sc.close();
+    }
+}
+
+
+
+**class Main {
+    public static void main(String[] args) {
+        int[] arr = {10, 200, 20, 50, 8, 200, 60, 80, 10, 40};
+        int n = 5;
+
+        int maxHeight = arr[0];
+        int maxWeight = arr[1];
+        int heightIndex = 0;
+        int weightIndex = 0;
+
+        for (int i = 1; i < n; i++) {
+            int height = arr[2 * i];
+            int weight = arr[2 * i + 1];
+
+            if (height > maxHeight) {
+                maxHeight = height;
+                heightIndex = i;
+            }
+
+            if (weight > maxWeight) {
+                maxWeight = weight;
+                weightIndex = i;
+            }
+        }
+
+        System.out.println(heightIndex + " " + weightIndex);
+    }
+}
+
+
+_________________________________________
+
+You are playing an online game. In the game, a list of N numbers is given. The player has to arrange the numbers so that all the odd numbers on the list come after the even numbers. Write an algorithm to arrange the given list such that all the odd numbers of the list come after the even numbers.
+
+Input Format
+
+The first line of the input consists of an integer num, representing the size of the list(N). The second line of the input consists of N space-separated integers representing the values of the list.
+
+Constraints
+
+NA
+
+Output Format
+
+Print N space-separated integers such that all the odd numbers of the list comes after the even numbers
+
+Sample Input 0
+
+8
+10 98 3 33 12 22 21 11
+Sample Output 0
+
+Array after Segregation
+10 98 22 12 33 3 21 11
+Sample Input 1
+
+5
+73 4 63 23 65
+Sample Output 1
+
+Array after Segregation
+4 73 63 23 65
+
+
+**//online game 
+
+import java.util.*;
+
+public class EvenOddSegregation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int[] arr = new int[num];
+
+        for (int i = 0; i < num; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int left = 0, right = num - 1;
+
+        while (left < right) {
+            if (arr[left] % 2 == 0) {
+                left++;
+            } else if (arr[right] % 2 != 0) {
+                right--;
+            } else {
+                arr[left] ^= arr[right];
+                arr[right] ^= arr[left];
+                arr[left] ^= arr[right];
+                left++;
+                right--;
+            }
+        }
+
+        System.out.println("Array after Segregation");
+        for (int val : arr) {
+            System.out.print(val + " ");
+        }
+    }
+}
+
+_____________________________
+An oil factory has N number of containers and each has a different capacity. During renovation, the manager decided to make some changes with the containers. He wishes to make different pairs for the containers in such a way that in the first pair, the container of maximum capacity is paired with the container of minimum capacity, and so on for the rest of the containers, to maintain a balance throughout all the pairs of containers.
+Write an algorithm to make different pairs of containers in such a way that the first container in the pair is of maximum capacity and second container in the pair is of minimum capacity.
+Input Format
+
+The first line of the input consists of an integer - numContainers, representing the number of containers (N).
+The next line consists of N space-separated integers - cont1, cont2, .... contN, representing container capacity.
+Constraints
+
+1 <= numContainers <= 1000
+1 <= conti <= 1000
+1 <= i <= numContainers
+Output Format
+
+Print K lines consisting of two space-separated integers representing the pairs that will be formed to maintain the balance by pairing the container of maximum capacity with the container of minimum capacity and so on.
+Note
+If only one container is left and no pair is possible then print the capacity of that container and the second value will be '0'.
+Sample Input 0
+
+6
+100 560 23 19 53 20
+Sample Output 0
+
+560 19
+100 20
+53 23
+Sample Input 1
+
+5
+15 25 35 45 55
+Sample Output 1
+
+55 15
+45 25
+35 0
+
+
+**import java.util.Arrays;
+import java.util.Scanner;
+
+public class ContainerPairing {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numContainers = scanner.nextInt();
+        int[] capacities = new int[numContainers];
+        for (int i = 0; i < numContainers; i++) {
+            capacities[i] = scanner.nextInt();
+        }
+        scanner.close();
+
+        Arrays.sort(capacities);
+
+        int left = 0;
+        int right = numContainers - 1;
+
+        while (left < right) {
+            System.out.println(capacities[right] + " " + capacities[left]);
+            left++;
+            right--;
+        }
+
+        if (left == right) {
+            System.out.println(capacities[left] + " 0");
+        }
+    }
+}
+
+
+_________________________________
+You are given an array a[] of n integers. The task is to find the smallest positive number missing from the array.
+
+Input Format
+
+First line - n, the size of an array Second line - all the n elements (a[i] can be positive, negative, zero)
+
+Constraints
+
+NA
+
+Output Format
+
+Print the smallest positive number missing from the array.
+
+Sample Input 0
+
+6
+4 2 0 -1 1 -3
+Sample Output 0
+
+3
+Sample Input 1
+
+5
+1 3 4 5 2
+Sample Output 1
+
+6
+Submissions: 1246
+Max Score: 100
+Difficulty: Medium
+Rate This Challenge:
+
+  **import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+
+        
+        int smallestMissing = 1;   // Start with 1 as the first possible positive number
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == smallestMissing) {
+                smallestMissing++;
+            }
+        }
+
+        // Output the result
+        System.out.println(smallestMissing);
+        sc.close();
+    }
+}
+        
+
+
+
+
+
+
+________________________
+
+14 MAY [ DAY 9]
+________________________
+
+Write a program to move all zeroes to the end of a given integer.
+
+Input Format
+
+The first line of input contains a number of test cases T.
+For each test case, the first line of input contains a single integer of 0's and 1's.
+Constraints
+
+1 ≤ T ≤ 10
+1 ≤ N ≤ 109
+Output Format
+
+The output contains a single-line integer value.
+
+Sample Input 0
+
+2
+1010101
+1000111
+Sample Output 0
+
+1111000
+1111000
+Sample Input 1
+
+1
+1100110
+Sample Output 1
+
+1111000
+
+
+
+**import java.util.Scanner;
+
+public class MoveZerosOptimized {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int T = sc.nextInt(); // Number of test cases
+
+        while (T-- > 0) {
+            int num = sc.nextInt();
+
+            int ones = 0, zeros = 0;
+
+            // Count number of 1s and 0s from the number's digits
+            while (num > 0) {
+                int digit = num % 10;
+
+                if (digit == 1) {
+                    ones++;
+                } else if (digit == 0) {
+                    zeros++;
+                }
+
+                num /= 10;
+            }
+
+            // Print 1s first, then 0s
+            for (int i = 0; i < ones; i++) {
+                System.out.print("1");
+            }
+            for (int i = 0; i < zeros; i++) {
+                System.out.print("0");
+            }
+
+            System.out.println(); // New line after each test case
+        }
+
+        sc.close();
+    }
+}
+
+LEETCODE PRBLM 1,2
+[solve 12 + question  of 1D Array from leetcode till moday.]
+
+
+[BIT MANIPULATION]
+WRITE  THE CODE READ INPUT FROM USER  AS AN INTEGER CONVERT BINARY TO DECIMAL AND DECIMAL TO BINARY 
+
+_____________________________________________________________________________
+take input integer first from  user then  then convert it to  binary and then the binary into decimal
+
+
+***import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Step 1: Input decimal number
+        System.out.print("Enter an integer number: ");
+        int decimalInput = sc.nextInt();
+
+        // Step 2: Convert decimal to binary manually (store in array)
+        int[] binary = new int[32]; // Supports up to 32 bits
+        int index = 0;
+        int num = decimalInput;
+
+        if (num == 0) {
+            binary[index++] = 0;
+        } else {
+            while (num > 0) {
+                binary[index++] = num % 2;
+                num = num / 2;
+            }
+        }
+
+        System.out.print("Binary representation: ");
+        // Print binary in reverse (from MSB to LSB)
+        for (int i = index - 1; i >= 0; i--) {
+            System.out.print(binary[i]);
+        }
+        System.out.println();
+
+        // Step 3: Convert binary (from array) back to decimal manually
+        int decimalResult = 0;
+        int power = 1; // 2^0
+
+        for (int i = 0; i < index; i++) {
+            decimalResult += binary[i] * power;
+            power *= 2;
+        }
+
+        System.out.println("Converted back to decimal: " + decimalResult);
+
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________________
+
+15 MAY [Day 10]
+
+
+Q.Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+ 
+
+Constraints:
+
+n == nums.length
+1 <= n <= 5 * 104
+-109 <= nums[i] <= 109
+
+
+**import java.util.Scanner;
+
+public class MajorityElementFinder {
+    public static int majorityElement(int[] nums) {
+        int count = 0;
+        int candidate = 0;
+
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+
+            if (num == candidate) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+
+        return candidate;
+    }
+
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int n = sc.nextInt();
+
+        int[] nums = new int[n];
+        System.out.print("Enter " + n + " elements: ");
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+        int result = majorityElement(nums);
+        System.out.println("Majority Element: " + result);
+
+        sc.close();
+    }
+}
+
+
+
+
+
+Q.  integer to binary:
+
+**import java.util.Scanner;
+
+public class Main {
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer number: ");
+        int decimalInput = sc.nextInt();
+
+        int[] binary = new int[32];
+        int index = 0;
+        int num = decimalInput;
+
+        if (num == 0) {
+            binary[index++] = 0;
+        } else {
+            while (num > 0) {
+                binary[index++] = num % 2;
+                num = num / 2;
+            }
+        }
+
+        System.out.print("Binary representation: ");
+        for (int i = index - 1; i >= 0; i--) {
+            System.out.print(binary[i]);
+        }
+    }
+}
+
+
+
+
+**BITWISE OPERATORS
+
+Bit manipulation is the process of directly working with the individual bits of data, typically within integers or other binary data types. This approach allows for very efficient processing, especially in low-level programming, embedded systems, and performance-critical applications.
+
+Uses of Bitwise Operators and Bit Manipulation:
+Efficient Data Storage: Store multiple boolean flags in a single integer using individual bits.
+
+Performance Optimization: Faster than higher-level operations for certain tasks like checking, setting, toggling bits.
+
+Hardware Control: Interacting directly with hardware registers.
+Cryptography & Compression: Implementing algorithms that require precise bit control.
+
+Flags and Masks: Managing multiple options or states compactly within a single variable.
+
+Common Tasks Using Bit Manipulation:
+_________________________________________
+Setting a bit: Turn on a specific bit.
+Clearing a bit: Turn off a specific bit.
+Toggling a bit: Flip a bit’s current state.
+Checking a bit: Test whether a specific bit is 0 or 1.
+Extracting bits: Isolate specific bits from data.
+In short: Bitwise operators enable precise, low-level control over data bits for optimized, system-level programming.
+
+-OPTIMAL APPROACH
+- BRUTE FORCE APPROACH
+
+
+Q. find 2nd maximum element of an array using optimal approach.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("size: ");
+        int n = sc.nextInt();
+
+        if (n < 2) {
+            System.out.println("2 Elements  required");
+            return;
+        }
+
+
+        int[] arr = new int[n];
+        System.out.print("Enter " + n + " elements: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+
+        int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+
+        for (int num : arr) {
+            if (num > max) {
+                secondMax = max;
+                max = num;
+            } else if (num < max && num > secondMax) {
+                secondMax = num;
+            }
+        }
+
+        {
+            System.out.println("Second largest element: " + secondMax);
+        }
+
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+16 MAY DAY 11
+Bitwise Operators 
+AND
+XOR
+>>
+<< 
+~not
+
+
+
+Q. check whether the ith bit is set bit or not  declare binary value of 23 
+
+public class BitCheck {
+    public static void main(String[] args) {
+        int num = 23; // Decimal number
+        int i = 2; // Bit position (0-based from right)
+
+        // Print binary representation of 23
+        System.out.println("Binary of 23: " + Integer.toBinaryString(num));
+
+        // Check if the ith bit is set
+        if ((num & (1 << i)) != 0) {
+            System.out.println("Bit at position " + i + " is set (1).");
+        } else {
+            System.out.println("Bit at position " + i + " is not set (0).");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+LEETCODE QUESTION  15
+Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+Notice that the solution set must not contain duplicate triplets.
+
+ 
+
+Example 1:
+
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+Explanation: 
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+The distinct triplets are [-1,0,1] and [-1,-1,2].
+Notice that the order of the output and the order of the triplets does not matter.
+Example 2:
+
+Input: nums = [0,1,1]
+Output: []
+Explanation: The only possible triplet does not sum up to 0.
+Example 3:
+
+Input: nums = [0,0,0]
+Output: [[0,0,0]]
+Explanation: The only possible triplet sums up to 0.
+ 
+
+Constraints:
+
+3 <= nums.length <= 3000
+-105 <= nums[i] <= 105
+
+
+CODE:
+import java.util.*;
+
+public class ThreeSum {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums); // Sort the array for two-pointer approach
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            // Skip duplicates for the first element
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+            int left = i + 1;
+            int right = nums.length - 1;
+
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+
+                if (sum == 0) {
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    // Skip duplicates for left pointer
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    // Skip duplicates for right pointer
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+
+                    left++;
+                    right--;
+                } else if (sum < 0) {
+                    left++; // Need a larger sum
+                } else {
+                    right--; // Need a smaller sum
+                }
+            }
+        }
+
+        return result;
+    }
+}
+
+
+
+
+
+
+
+LEETCODE PROBLEM NO 26:
+
+Given a sorted array nums, remove the duplicates in-place such that each unique element appears only once. Return the new length of the array after removal.
+
+Approach & Step-by-Step Visualization🔍:
+The code starts iterating from i = 1 because we need to compare each element with its previous element to check for duplicates.
+
+1 . Initialize j = 1 (first unique element is already at nums[0]).
+
+2 . Loop from i = 1 to end:
+
+If nums[i] != nums[i-1] (new unique element found):
+▪ Store it at nums[j]
+▪ Increment j
+3 . Return j (number of unique elements).
+
+
+
+Initial Setup
+Array: [1,1,2,2,3,4,4]
+Pointers:
+
+j = 0 (tracks last unique element)
+i = 1 (scans for next unique element)
+
+
+Iteration 1 (i=1):
+Compare nums[0] (1) vs nums[1] (1) → Duplicate
+Skip (no changes to array or j)
+Move i to next position (i=2)
+
+
+Iteration 2 (i=2):
+Compare nums[j=0] (1) vs nums[i=2] (2) → Unique (1 != 2)
+Increment j to 1
+Copy nums[2] (2) to nums[1]
+Array state: [1, 2, 2, 2, 3, 4, 4] (positions 0-1 now contain unique elements)
+
+
+Iteration 3 (i=3):
+Compare nums[j=1] (2) vs nums[i=3] (2) → Duplicate (2 == 2)
+No action taken (j remains at 1)
+i increments to 4 automatically in next iteration
+
+
+Iteration 4 (i=4):
+1 . Current Pointers:
+j = 1 (last unique at nums[1] = 2)
+i = 4 (current element nums[4] = 3)
+
+2 . Comparison:
+nums[j] (2) vs nums[i] (3) → Unique (2 != 3)
+
+3 . Actions:
+Increment j to 2.
+Copy nums[i] (3) to nums[j] (nums[2]).
+Iteration 5 (i=5):
+
+1 . Current State:
+j = 2 (last unique at nums[2] = 3)
+i = 5 (current element nums[5] = 4)
+Array: [1, 2, 3, 2, 3, 4, 4]
+
+2 . Comparison:
+nums[j] (3) vs nums[i] (4) → Unique (3 != 4)
+
+3 . Actions:
+Increment j to 3.
+Copy nums[i] (4) to nums[j] (nums[3]).
+
+
+Iteration 6 (i=6):
+1 . Current State:
+
+j = 3 (last unique at nums[3] = 4)
+i = 6 (current element nums[6] = 4)
+Array: [1, 2, 3, 4, 3, 4, 4]
+2 . Comparison:
+
+nums[j] (4) vs nums[i] (4) → Duplicate (4 == 4)
+3 . Actions:
+
+No change to j (remains 3).
+Skip copying (duplicate ignored).
+Final Result
+
+Array: [1,2,3,4,3,4,4]
+Unique Elements: First 4 ([1,2,3,4]), rest ignored.
+Return: j + 1 = 4
+image.png
+
+⏳Complexity Analysis
+Time complexity:O(n)
+Space complexity:O(1) (constant space).
+
+
+code:
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int j = 0;
+        for (int i =1; i < nums.length; i++){
+            if(nums[j] != nums[i]){
+                nums[++j] = nums[i];
+            }
+        }
+        return ++j;
+    }
+}
+
